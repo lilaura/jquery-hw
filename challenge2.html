@@ -27,8 +27,7 @@
       </fieldset>
 
     <script>
-      $(document).ready(function() {
-        $("#useBilling").change(function(){
+      $("#useBilling").click(function(){
           if ($(this).is(':checked')) {
             $("#home").val($("#billing").val());
             $("#home").prop('disabled', true);
@@ -38,7 +37,7 @@
             $("#home").prop('disabled', false);
           }
         });
-      })
+      
     </script>
 
 </body>
