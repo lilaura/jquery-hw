@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Challenge 4</title>
+  <title>Challenge 4</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
 
     .errormsg { 
@@ -14,7 +15,7 @@
 </head>
 <body>
     <h1>Challenge 4</h1>
-	<form action="challenge5.html" method="post" id = "ch4form">
+	<form action="challenge5.html" id = "ch4form">
         <fieldset>
         <legend>Personal details</legend>
           <label for="fullname">Full name: </label>
@@ -30,7 +31,24 @@
         </fieldset>
         <input type="submit" value="Submit it!"> 
     </form>
-    <script src = "js/challenge4.js"></script>
+    <script>
+      $('form').submit(function(event) {
+        var validInput = true;     
+        if ($("#fullname").val().length == 0){
+            $("#nameerrormsg").css('display', "block");
+            validInput = false;
+        } else {
+          $("#nameerrormsg").css('display', "none");
+        }
+        if ($("#streetaddr").val().length == 0){
+            $("#addrerrormsg").css('display', "block");
+            validInput = false;
+        } else {
+            $("#addrerrormsg").css('display', "none");
+        }
+        return validInput;
+      })
+    </script>
 
 </body>
 </html>
